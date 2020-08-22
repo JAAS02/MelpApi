@@ -1,0 +1,254 @@
+{
+	"info": {
+		"_postman_id": "00f0bd8c-b3c2-49b2-9a98-46ecaf357ede",
+		"name": "Melptest",
+		"description": "Request test to the API on https://melptest.herokuapp.com/\r\n\r\nThe API has the CRUD on it as it shows next:\r\n\r\nGET\r\nhttps://melptest.herokuapp.com/restaurants/statistics?latitude=x&longitude=y&radius=z\r\nReturns the number of restaurants on the area that is send, the average of rating of all the restaurants and the standard deviation as well, the radius is used in meters.\r\n\r\nhttps://melptest.herokuapp.com/restaurants/statistics/states\r\nReturns the number of restaurants on every state and the average of every state\r\n\r\nhttps://melptest.herokuapp.com/restaurants/{state}\r\nReturns the city, the rating and the phone of every Restaurant on the state sent.\r\n\r\nPOST\r\nhttps://melptest.herokuapp.com//restaurants/update/{column}\r\nIt needs of 2 params send as JSON, one with the name id refering to the id of the restaurant and the second one the data that it's gonna be update. The {column} indicates what column of the database is gonna be updated.\r\n\r\nhttps://melptest.herokuapp.com/restaurants/delete\r\nIt needs a param send as JSON with the name id, that is the id of the restaurant that is going to be deleted.\r\n\r\n\r\nhttps://melptest.herokuapp.com/restaurants/insert\r\nIt needs a JSON with the next data:\r\nid TEXT PRIMARY KEY -- Unique Identifier of Restaurant\r\nrating INTEGER -- Number between 0 and 4\r\nname TEXT -- Name of the restaurant\r\nsite TEXT -- Url of the restaurant\r\nemail TEXT\r\nphone TEXT\r\nstreet TEXT\r\ncity TEXT\r\nstate TEXT\r\nlat FLOAT -- Latitude\r\nlng FLOAT -- Longitude",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://melptest.herokuapp.com/restaurants/statistics?latitude=19.44005705&longitude=-99.12704710&radius=80",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://melptest.herokuapp.com/restaurants/statistics?latitude=19.44005705&longitude=-99.12704710&radius=80",
+					"protocol": "https",
+					"host": [
+						"melptest",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"restaurants",
+						"statistics"
+					],
+					"query": [
+						{
+							"key": "latitude",
+							"value": "19.44005705"
+						},
+						{
+							"key": "longitude",
+							"value": "-99.12704710"
+						},
+						{
+							"key": "radius",
+							"value": "80"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://melptest.herokuapp.com/restaurants/statistics/states",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://melptest.herokuapp.com/restaurants/statistics/states",
+					"protocol": "https",
+					"host": [
+						"melptest",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"restaurants",
+						"statistics",
+						"states"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://melptest.herokuapp.com/restaurants/Michoacan",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://melptest.herokuapp.com/restaurants/Michoacan",
+					"protocol": "https",
+					"host": [
+						"melptest",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"restaurants",
+						"Michoacan"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://melptest.herokuapp.com/restaurants/Hidalgo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://melptest.herokuapp.com/restaurants/Hidalgo",
+					"protocol": "https",
+					"host": [
+						"melptest",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"restaurants",
+						"Hidalgo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://melptest.herokuapp.com/restaurants/update/name",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"id\":\"851f799f-0852-439e-b9b2-df92c43e7672\",\r\n\t\"data\":\"Otro nombre\"\r\n}"
+				},
+				"url": {
+					"raw": "https://melptest.herokuapp.com/restaurants/update/name",
+					"protocol": "https",
+					"host": [
+						"melptest",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"restaurants",
+						"update",
+						"name"
+					]
+				},
+				"description": "Cambia el nombre al restaurant Barajas, Bahena and Kano\r\n851f799f-0852-439e-b9b2-df92c43e7672\r\nEn durango\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "https://melptest.herokuapp.com/restaurants/Durango",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://melptest.herokuapp.com/restaurants/Durango",
+					"protocol": "https",
+					"host": [
+						"melptest",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"restaurants",
+						"Durango"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://melptest.herokuapp.com/restaurants/delete",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"id\":\"851f799f-0852-439e-b9b2-df92c43e7672\"\r\n}"
+				},
+				"url": {
+					"raw": "https://melptest.herokuapp.com/restaurants/delete",
+					"protocol": "https",
+					"host": [
+						"melptest",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"restaurants",
+						"delete"
+					]
+				},
+				"description": "Elimina al mismo restaurant Barajas, Bahena and Kano ahora llamado Otro nombre, en durango"
+			},
+			"response": []
+		},
+		{
+			"name": "https://melptest.herokuapp.com/restaurants/Durango",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://melptest.herokuapp.com/restaurants/Durango",
+					"protocol": "https",
+					"host": [
+						"melptest",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"restaurants",
+						"Durango"
+					]
+				},
+				"description": "Restaurant eliminado"
+			},
+			"response": []
+		},
+		{
+			"name": "https://melptest.herokuapp.com/restaurants/insert",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"id\":\"851f799f-0852-439e-b9b2-df92c43e7672\",\r\n\t\"rating\":1,\r\n\t\"name\":\"Barajas, Bahena and Kano\",\r\n\t\"site\":\"https://federico.com\",\r\n\t\"email\":\"Anita_Mata71@hotmail.com\",\r\n\t\"phone\":\"534 814 204\",\r\n\t\"street\":\"82247 Mariano Entrada\",\r\n\t\"city\":\"Mérida Alfredotown\",\r\n\t\"state\":\"Durango\",\r\n\t\"lat\":19.44005705,\r\n\t\"lng\":-99.12704710\r\n}"
+				},
+				"url": {
+					"raw": "https://melptest.herokuapp.com/restaurants/insert",
+					"protocol": "https",
+					"host": [
+						"melptest",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"restaurants",
+						"insert"
+					]
+				},
+				"description": "Agrega de nuevo al restaurant Barajas, Bahena and Kano"
+			},
+			"response": []
+		},
+		{
+			"name": "https://melptest.herokuapp.com/restaurants/Durango",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://melptest.herokuapp.com/restaurants/Durango",
+					"protocol": "https",
+					"host": [
+						"melptest",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"restaurants",
+						"Durango"
+					]
+				},
+				"description": "Restaurant Agregado"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
