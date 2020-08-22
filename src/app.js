@@ -3,8 +3,8 @@ const HapiPostgresConnection = require('hapi-postgres-connection');
 
 const init = async () =>{ 
     const server = new Hapi.Server({
-        port: 48566,
-        host: 'localhost'
+        port: 5432,
+        host: 'ec2-54-146-91-153.compute-1.amazonaws.com'
     })
     await server.register({
         plugin: HapiPostgresConnection
