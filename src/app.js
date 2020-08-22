@@ -16,14 +16,39 @@ const init = async () =>{
             let lng= request.query.longitude;
             let lat= request.query.latitude;
             let radius= request.query.radius;
-            let fun= `SELECT * FROM area('${lng}', '${lat}', ${radius})`
+            if(typeof lng === "undefined" || typeof lat === "undefined" || typeof radius === "undefined"){
+                return h.response("Error! Information missing, try again with longitude, latitude and radius like this:\n/restaurants/statistics?latitude=x&longitude=y&radius=z");
+            }else{
+                let fun= `SELECT * FROM area('${lng}', '${lat}', ${radius})`
+                try{
+                    const result = await request.pg.client.query(fun);
+                    console.log(result);
+                    return h.response(result.rows[0]);
+                }catch(err){
+                    console.log(err);
+                }
+            }
+        }
+    });
+    server.route({
+        method: 'GET',
+        path: '/restaurants/statistics/states',
+        handler: async (request, h) => {
+            let fun= `SELECT state, count(*), avg(rating) FROM "Restaurants" GROUP BY state ORDER BY avg(rating) DESC`
             try{
                 const result = await request.pg.client.query(fun);
                 console.log(result);
-                return h.response(result.rows[0]);
+                return h.response(result.rows);
             }catch(err){
                 console.log(err);
             }
+        }
+    });
+    server.route({
+        method: 'POST',
+        path: '/restaurants/update',
+        handler: async (request, h) => {
+            
         }
     })
 
