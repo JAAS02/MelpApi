@@ -3,8 +3,7 @@ const HapiPostgresConnection = require('hapi-postgres-connection');
 
 const init = async () =>{ 
     const server = new Hapi.Server({
-        port: 5432,
-        host: 'https://melptest.herokuapp.com'
+        port: process.env.PORT
     })
     await server.register({
         plugin: HapiPostgresConnection
