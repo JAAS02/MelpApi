@@ -208,7 +208,7 @@ COMMENT ON EXTENSION postgis_topology IS 'PostGIS topology spatial types and fun
 -- Name: area(text, text, integer); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
-CREATE FUNCTION public.area(text, text, integer) RETURNS TABLE(count bigint, avg numeric, stddev numeric)
+CREATE FUNCTION public.area(text, text, integer) RETURNS TABLE(count bigint, avg numeric, std numeric)
     LANGUAGE sql
     AS $_$SELECT count(*), avg(rating), stddev(rating) FROM "Restaurants" 
  WHERE $3 > ST_Distance(ST_GeographyFromText(CONCAT ('POINT(',$1,' ',$2,')')), 

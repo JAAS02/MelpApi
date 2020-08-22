@@ -19,7 +19,8 @@
   "homepage": "https://github.com/JAAS02/MelpApi#readme",
   "dependencies": {
     "@hapi/hapi": "^20.0.0",
-    "@hapi/joi": "^17.1.1"
+    "@hapi/joi": "^17.1.1",
+    "hapi-postgres-connection": "^7.0.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
